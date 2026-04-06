@@ -1,101 +1,100 @@
 .header {
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
-  align-items: center; 
-  padding: 92px 50px 96px; 
+  align-items: center;
+  padding: 92px 50px 96px;
   background-color: #fff;
 }
+
 .header__menu {
   /* Здесь ничего менять не нужно, она просто займет первую колонку */
 }
+
 .header__menu-list {
   display: flex;
-  gap: 32px; /* Расстояние между пунктами меню по макету */
-  list-style: none; /* Убираем точки */
+  gap: 32px;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
-.header__menu-item_no-bullet {
-  list-style-type: none; /* На всякий случай для первого пункта */
-}
 
-.header__menu-item { }
+.header__menu-item_no-bullet {
+  list-style-type: none;
+}
 
 .header__link {
   font-size: 18px;
-  text-decoration: none; /* Убираем стандартное браузерное подчеркивание */
+  text-decoration: none;
   color: #000;
-  /* Добавляем подчеркивание через border или text-decoration */
-  border-bottom: 1px solid currentColor; 
-  padding-bottom: 2px; /* Немного отступа для красоты */
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
   transition: opacity 0.3s ease;
 }
+
 .header__link_active {
-  /* Убираем подчеркивание именно у активной ссылки */
-  border-bottom: none; 
-  cursor: default; /* Опционально: показываем, что на нее нельзя нажать */
+  border-bottom: none;
+  cursor: default;
 }
 
-/* Эффект при наведении на обычные ссылки */
 .header__link:hover {
   opacity: 0.6;
 }
 
-/* Отменяем эффект наведения для активной ссылки */
 .header__link_active:hover {
   opacity: 1;
 }
+
 .header__links-list {
   display: flex;
-  gap: 32px; /* Расстояние между пунктами по макету */
-  list-style: circle; /* Точки между ссылками */
+  gap: 32px;
+  list-style: circle;
   padding: 0;
 }
 
 .header__links-list-item {
-  /* Это добавит «воздуха» между кружочком и текстом внутри пункта */
-  padding-left: 8px; 
+  padding-left: 8px;
 }
+
 .header__links-list-item_no-bullit {
-  list-style: none; /* Убираем точку у первого пункта */
+  list-style: none;
 }
 
 .header__logo {
   width: 148px;
   height: 105px;
-  justify-self: center; /* Центровка логотипа в сетке */
+  justify-self: center;
 }
 
 .header__logo-image {
   width: 100%;
   display: block;
 }
+
 .header__address {
-  justify-self: end; /* Прижимаем к правому краю */
+  justify-self: end;
   width: 240px;
 }
-/* Общие стили для адресов */
+
 .address {
   font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-size: 18px;
-  line-height: 24.3px; /* Межстрочный интервал из параметров */
+  line-height: 24.3px;
 }
 
 .address__text {
   margin-top: 4px;
-  line-height: 1.2; /* Чтобы перенос адреса выглядел компактно */
+  line-height: 1.2;
 }
 
 .address__link {
   display: block;
-  text-decoration: underline; /* Подчеркивание для почты и телефона по фото */
+  text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
   margin-bottom: 4px;
 }
-/* Секция Cover */
-/* 1. Секция-родитель */
+
 .cover {
   position: relative;
   display: flex;
@@ -105,12 +104,10 @@
   min-height: 757px;
 }
 
-/* Класс для расширенного межбуквенного расстояния (30% от 100px = 30px) */
 .letter-spacing-extended {
   letter-spacing: 0.3em;
 }
 
-/* Класс для обнуления расстояния у последней буквы слова */
 .no-letter-spacing {
   letter-spacing: 0;
 }
@@ -125,29 +122,22 @@
   padding: 165px 50px 50px;
   box-sizing: border-box;
 }
+
 .overlay {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* 3. Контент (Заголовок и описание) */
 .cover__title {
-  /* Позиционирование */
   position: absolute;
   top: 165px;
   left: 50px;
-  
-  /* Размеры */
   width: 1000px;
   height: 385px;
-  
-  /* Флекс */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Теперь сработает верно */
-  
-  /* Типографика */
+  justify-content: space-between;
   margin: 0;
   padding: 0;
   color: #fff;
@@ -156,36 +146,27 @@
   font-size: 100px;
   text-transform: uppercase;
   z-index: 2;
-  
-  /* ДОБАВЛЯЕМ ЭТО СВОЙСТВО: 30% от 100px */
-  letter-spacing: 0.3em; 
+  letter-spacing: 0.3em;
 }
 
-/* Стили для отдельных строк заголовка */
 .aligned-text {
   display: block;
-  /* Задаем line-height: 1, чтобы высота строки была равна размеру шрифта.
-     Это позволит justify-content: space-between верно распределить отступы. */
-  line-height: 1; 
+  line-height: 1;
 }
 
-/* "ОНО" - по умолчанию слева */
-
-/* "ТЕБЕ" - в центр */
 .aligned-text_center {
   align-self: center;
 }
 
-/* "НАДО" - вправо */
 .aligned-text_right {
   align-self: flex-end;
 }
 
 .cover__description {
   position: absolute;
-  top: 656px; /* Точно как в Figma */
+  top: 656px;
   left: 50px;
-  width: 1000px; /* Ширина контентной области */
+  width: 1000px;
   height: 51px;
   display: flex;
   justify-content: space-between;
@@ -201,9 +182,8 @@
   line-height: 28px;
   text-transform: uppercase;
   color: #fff;
-  
-  letter-spacing: 0; /* Буквы плотно */
-  word-spacing: 19.8px; /* Пробелы 90% (22px * 0.9) */
+  letter-spacing: 0;
+  word-spacing: 19.8px;
   white-space: nowrap;
 }
 
@@ -224,46 +204,30 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-
 .lots {
-  /* Геометрия из Layout */
   width: 1052px;
-  /* Высота подстроится сама под контент, либо можно задать min-height: 723px */
-  
-  /* Позиционирование */
-  /* Отступ слева 24px, как указано в Figma. 
-     Верхний отступ (Top: 1230px) лучше делать через margin-top относительно предыдущего блока */
-  margin-top: 140px; /* Примерный отступ от хедера/предыдущей секции */
-  margin-left: 24px; 
-  
-  /* Внутренние отступы, чтобы контент внутри (заголовок и ссылка) 
-     не прилипал к краям самой секции, если это предусмотрено макетом */
-  padding: 0; 
-  
+  margin-top: 140px;
+  margin-left: 24px;
+  padding: 0;
   display: flex;
   flex-direction: column;
 }
+
 .lots__heading {
-  /* Layout */
-  margin-left: 40px; /* Параметр Left */
+  margin-left: 40px;
   width: 121px;
   height: 47px;
-
-  /* Typography */
   font-family: 'Raleway', sans-serif;
-  font-weight: 700; /* Bold */
+  font-weight: 700;
   font-size: 40px;
-  line-height: 100%; /* 1.0 */
+  line-height: 100%;
   letter-spacing: 0%;
-  text-transform: uppercase; /* Case: Uppercase */
-
-  /* Colors */
+  text-transform: uppercase;
   color: #000000;
-  
-  /* Сброс дефолтных отступов браузера */
   margin-top: 0;
-  margin-bottom: 27px; /* Оставляем этот отступ до карточек из предыдущих правок */
+  margin-bottom: 27px;
 }
+
 .lots__card-list {
   display: flex;
   gap: 25px;
@@ -277,10 +241,9 @@
   height: 596px;
 }
 
-
 .card-link {
   display: block;
-  text-decoration: none; /* Сброс подчеркивания ссылки */
+  text-decoration: none;
   height: 100%;
 }
 
@@ -288,7 +251,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Заголовок наверх, текст вниз */
+  justify-content: space-between;
   width: 334px;
   height: 596px;
   padding: 48px 40px;
@@ -305,59 +268,49 @@
 }
 
 .card__title {
-  /* Чтобы заголовок был поверх оверлея */
   position: relative;
   z-index: 2;
-
-  /* Layout из параметров */
   width: 254px;
-  /* Height 82px обычно получается автоматически за счет текста, 
-     но можно ограничить, если нужно строго по макету */
-  
-  /* Typography */
   font-family: 'Raleway', sans-serif;
-  font-weight: 700; /* Bold */
+  font-weight: 700;
   font-size: 22px;
-  line-height: 1.2; /* 120% */
-  text-transform: uppercase; /* Case: Uppercase */
-  
-  /* Text decoration */
+  line-height: 1.2;
+  text-transform: uppercase;
   text-decoration: underline;
   text-decoration-style: solid;
-  /* В браузере Thickness 0% означает стандартную толщину (обычно 1px) */
-  text-underline-offset: 2px; 
-
+  text-underline-offset: 2px;
   color: #ffffff;
   margin: 0;
 }
 
 .card__text {
-  /* Чтобы текст всегда был поверх затемнения */
   position: relative;
   z-index: 2;
-  
-  /* Цвета и шрифты */
   color: #fff;
   font-family: 'Raleway', sans-serif;
-  font-weight: 400; /* Regular */
+  font-weight: 400;
   font-size: 20px;
-  line-height: 1.2; /* 120% из параметров */
-  
-  /* Сброс лишних отступов */
+  line-height: 1.2;
   margin: 0;
-  
-  /* Дополнительно: убеждаемся, что межбуквенное расстояние 0 */
   letter-spacing: 0;
 }
 
-.card_type_film { background-image: url('../images/card-lot-01.jpg'); }
-.card_type_book { background-image: url('../images/card-lot-02.jpg'); }
-.card_type_picture { background-image: url('../images/card-lot-03.jpg'); }
+.card_type_film {
+  background-image: url('../images/card-lot-01.jpg');
+}
+
+.card_type_book {
+  background-image: url('../images/card-lot-02.jpg');
+}
+
+.card_type_picture {
+  background-image: url('../images/card-lot-03.jpg');
+}
 
 .lots__look-more-link {
   display: block;
   margin: 30px 0 0 40px;
-  width: 192px; /* Оставляем как в макете */
+  width: 192px;
   height: 25px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
@@ -366,33 +319,32 @@
   color: #000000;
   text-decoration: none;
   border-bottom: 1px solid #000000;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .lots__look-more-link:hover {
   opacity: 0.7;
 }
-/* Секция About */
+
 .about {
-  display: grid;
-  grid-template-columns: 334px 1fr;
-  column-gap: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 1052px;
-  margin: 140px auto 0 24px;
-  /* Убираем padding-top, чтобы он не толкал логотип вниз */
-  padding: 0; 
+  height: 595px; /* Фиксированная высота по макету */
+  margin: 140px auto 0 24px; /* Координата left: 24px */
+  padding: 0;
   box-sizing: border-box;
 }
 
+
 .logo-column {
-  /* Параметры Layout */
-  padding-top: 35px;  /* Top: 35px */
-  padding-left: 47px; /* Left: 47px */
-  
-  /* Размеры самой колонки из скрина */
-  width: 240px; 
+  padding-top: 35px;
+  padding-left: 47px;
+  width: 240px;
   height: 240px;
 }
+
 .about__column:first-child {
   align-items: center;
 }
@@ -408,70 +360,57 @@
 }
 
 .about-column {
-  /* Если логотип теперь на 35px от верха, а нам нужно выровнять 
-     заголовок по его центру: (35px отступ + 120px половина круга) = 155px. 
-     Вычитаем примерно половину высоты шрифта (20px) */
-  padding-top: 135px; 
+  width: 693px;
+  padding-top: 135px;
 }
 
 .about__logo-image {
-  width: 148px; /* Примерный размер белого логотипа внутри */
+  width: 148px;
   height: auto;
 }
 
 .about__title {
-  margin-bottom: 100px; /* Сохраняем воздух до текста как в макете */
+  margin: 0 0 100px 0; /* Отступ 100px строго вниз до текста */
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 40px;
   text-transform: uppercase;
+  line-height: 1;
 }
 
 .about__text {
-  max-width: 693px; /* Ширина из параметров description-block */
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Paragraph spacing из параметров */
 }
 
 .about__paragraph {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  line-height: 24px; /* Line height 120% */
+  line-height: 24px;
   margin: 0;
 }
 
-/* Отступ между абзацами */
 .about__paragraph:first-child {
-  margin-bottom: 30px; /* Paragraph spacing из параметров */
+  margin-bottom: 30px;
 }
 
 .about__paragraph:last-child {
-  width: 693px; /* Ширина из скрина 2 */
+  width: 693px;
 }
 
-/* Футер */
 .footer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Контент прижат к верхнему краю внутренней области */
-  
+  align-items: flex-start; /* Прижимаем всё к верху синей рамки */
   width: 1100px;
-  height: 180px; /* Фиксированная высота по макету */
-  
-  /* 180px — отступ от секции about (пробел между блоками) */
+  height: 180px;
   margin: 180px auto 50px; 
-  
-  /* Внутренние отступы футера */
-  /* padding-top: рассчитывается как (Высота 180 - Высота контента 98 - Отступ снизу 82) */
-  /* Если высота самого высокого блока (контактов) 98px, а снизу нужно 82px: */
-  /* 180 - 98 - 82 = 0. Значит, padding-top будет 0. */
-  padding-top: 0; 
-  padding-bottom: 82px; /* Строго 82px от конца контактов до низа футера */
-  
+  padding: 20px 0 82px; /* 82px снизу по твоему замеру */
   box-sizing: border-box;
-  /* border: 1px solid #0066FF; */
 }
 
-/* Колонки */
 .footer__column {
   flex: 1;
 }
@@ -488,30 +427,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 64px; 
+  height: 64px;
   justify-content: space-between;
 }
 
 .footer__menu-item {
-  line-height: 1; /* Чтобы текст занимал ровно столько, сколько нужно */
+  line-height: 1;
 }
+
 .footer__menu-item a {
-  display: block; /* Чтобы line-height считался корректно */
+  display: block;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 1; 
+  line-height: 1;
   color: #000000;
   text-decoration: none;
-  white-space: nowrap; /* Чтобы "посмотреть лоты" не прыгало на две строки */
+  white-space: nowrap;
 }
 
 .footer__menu-link--underlined {
   border-bottom: 1px solid #000;
-  /* Чтобы линия была точно под текстом как в макете */
   display: inline-block;
-  line-height: 0.9; 
+  line-height: 0.9;
 }
+
 .footer__socials {
   display: flex;
   justify-content: flex-end;
@@ -543,15 +483,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;              /* Ширина круга из Ellipse */
-  height: 48px;             /* Высота круга из Ellipse */
-  border: 1px solid #000;   /* Рамка 1px */
-  border-radius: 50%;       /* Скругление до круга */
+  width: 48px;
+  height: 48px;
+  border: 1px solid #000;
+  border-radius: 50%; /* privet*/
   transition: background-color 0.3s ease;
 }
 
 .socials__link:hover {
-  background-color: #f0f0f0; /* Легкий эффект при наведении */
+  background-color: #f0f0f0;
 }
 
 .socials__icon--yt {
@@ -568,5 +508,3 @@
   width: 17px;
   height: 22px;
 }
-
-
