@@ -2,51 +2,117 @@
 
 /* Шапка сайта */
 .header {
-  padding: 92px 50px; /* Отступы по макету: сверху/снизу 92px, сбоку 50px */
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  align-items: center;
+  margin-bottom: -1px; /* Нахлест в 1 пиксель убирает белые щели */
+  padding: 92px 50px;
+  background-color: #fff; /* Добавь это! */
+  position: relative;     /* Чтобы она была выше оверлея */
+  z-index: 10;            /* Самый высокий слой */
+  
 }
-.header__menu { }
-.header__menu-list { }
+
+.header__menu {
+  /* Здесь ничего менять не нужно, она просто займет первую колонку */
+}
+.header__menu-list {
+  display: flex;
+  gap: 32px; /* Расстояние между пунктами меню по макету */
+  list-style: none; /* Убираем точки */
+  padding: 0;
+  margin: 0;
+}
+.header__menu-item_no-bullet {
+  list-style-type: none; /* На всякий случай для первого пункта */
+}
+
 .header__menu-item { }
-.header__link { }
-.header__link_active { }
-.header__logo { }
-.header__logo-image { }
-.header__address { }
+.header__link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #000;
+  white-space: nowrap; /* Чтобы ссылки не переносились на вторую строку */
+}
+.header__link_active {
+  border-bottom: 1px solid #000;
+}
+.header__logo {
+  display: block;
+  width: 148px; /* Фиксированная ширина из Figma */
+}
+.header__logo-image {
+  width: 100%;
+  display: block;
+}
+.header__address {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Небольшой отступ между строками адреса */
+  font-style: normal;
+  text-align: right; /* Прижимаем текст к правому краю */
+}
 
 /* Общие стили для адресов */
 .address { }
-.address__link { }
-.address__text { }
+.address__link {
+  text-decoration: none;
+  color: #000;
+  display: block; /* Ссылки будут друг под другом */
+}
+.address__text {
+  margin-top: 5px;
+}
 
 /* Секция Cover */
 .cover {
-  position: relative; /* Чтобы .overlay позиционировался внутри */
+  position: relative; /* Обязательно! */
   background-image: url("../images/cover.jpg");
   background-size: cover;
   background-position: center;
+  min-height: 757px; /* Высота из Figma */
   padding: 165px 50px 50px;
-  min-height: 757px; /* Высота по макету */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-/* повторяющийся стиль для затемнения фоновых изображений */
+
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Черный цвет с прозрачностью 60% */
+  inset: 0; /* Растягивается на весь родительский блок */
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 0;
 }
 .cover__title {
-  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Расстояние между строками */
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 100px;
+  font-weight: 700;
   text-transform: uppercase;
-  position: relative; /* Чтобы быть выше оверлея */
+  line-height: 1; /* Чтобы строки не были слишком далеко друг от друга */
+  position: relative;
   z-index: 1;
 }
-.aligned-text { }
-.aligned-text_center { }
-.aligned-text_right { }
-.cover__description { }
+.aligned-text {
+  display: block;
+}
+
+.aligned-text_center {
+  display: block;
+  align-self: center; /* Центрируем вторую строку */
+}
+
+.aligned-text_right {
+  display: block;
+  align-self: flex-end; /* Прижимаем третью строку вправо */
+}
+.cover__description {
+  position: relative; /* Позволяет работать z-index */
+  z-index: 2;         /* Больше, чем 0 у оверлея */
+}
 .cover__description-text { }
 .bet-button { }
 
@@ -59,7 +125,13 @@
   text-transform: uppercase;
   margin-bottom: 27px;
 }
-.lots__card-list { }
+.lots__card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+  gap: 25px; /* Расстояние между карточками по макету */
+  list-style: none;
+  margin-top: 27px;
+}
 .lots__card-list-item { }
 .card-link { }
 .card { }
@@ -69,13 +141,21 @@
 
 /* Секция About */
 .about {
-  padding: 180px 50px;
-  display: grid; /* Подготовим сетку для колонок */
-  grid-template-columns: 1fr 2fr; /* Левая колонка уже правой */
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Левая колонка под лого, правая под текст */
   gap: 30px;
+  align-items: start;
 }
 .about__column { }
-.about__logo { }
+.about__logo {
+  background-color: #000; /* Черный круг под белым логотипом */
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .about__logo-image { }
 .about__title {
   font-size: 40px;
