@@ -1,7 +1,54 @@
 /* место для вашего кода */
 
-body {
-  background-color: #f5f5f5; /* Временный цвет для проверки */
-  color: #000000;
-}
+/* Шапка сайта */
+.header { }
+.header__menu { }
+.header__menu-list { }
+.header__menu-item { }
+.header__link { }
+.header__link_active { }
+.header__logo { }
+.header__logo-image { }
+.header__address { }
+
+/* Общие стили для адресов */
+.address { }
+.address__link { }
+.address__text { }
+
+/* Секция Cover */
+.cover { }
+.overlay { }
+.cover__title { }
+.aligned-text { }
+.aligned-text_center { }
+.aligned-text_right { }
+.cover__description { }
+.cover__description-text { }
+.bet-button { }
+
+/* Секция Lots */
+.lots { }
+.lots__heading { }
+.lots__card-list { }
+.lots__card-list-item { }
+.card-link { }
+.card { }
+.card__title { }
+.card__text { }
+.lots__look-more { }
+
+/* Секция About */
+.about { }
+.about__column { }
+.about__logo { }
+.about__logo-image { }
+.about__title { }
+.about__text { }
+
+/* Футер */
+.footer { }
+.footer__menu { }
+.footer__social-list { }
+.footer__social-link { }
 
