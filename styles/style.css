@@ -6,10 +6,6 @@
   background-color: #fff;
 }
 
-.header__menu {
-  /* Здесь ничего менять не нужно, она просто займет первую колонку */
-}
-
 .header__menu-list {
   display: flex;
   gap: 32px;
@@ -328,40 +324,30 @@
 
 .about {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   width: 1052px;
-  height: 595px; /* Фиксированная высота по макету */
-  margin: 140px auto 0 24px; /* Координата left: 24px */
+  height: 595px;
+  margin: 140px auto 0 24px;
   padding: 0;
   box-sizing: border-box;
-}
-
-
-.logo-column {
-  padding-top: 35px;
-  padding-left: 47px;
-  width: 240px;
-  height: 240px;
-}
-
-.about__column:first-child {
-  align-items: center;
 }
 
 .about__logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   width: 240px;
   height: 240px;
   background-color: #000;
   border-radius: 50%;
+  margin-top: 35px;
+  margin-left: 47px;
 }
 
-.about-column {
+.about__column {
   width: 693px;
   padding-top: 135px;
+  margin-left: auto;
 }
 
 .about__logo-image {
@@ -370,7 +356,7 @@
 }
 
 .about__title {
-  margin: 0 0 100px 0; /* Отступ 100px строго вниз до текста */
+  margin: 0 0 100px 0;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 40px;
@@ -381,7 +367,7 @@
 .about__text {
   display: flex;
   flex-direction: column;
-  gap: 30px; /* Paragraph spacing из параметров */
+  gap: 30px;
 }
 
 .about__paragraph {
@@ -392,22 +378,14 @@
   margin: 0;
 }
 
-.about__paragraph:first-child {
-  margin-bottom: 30px;
-}
-
-.about__paragraph:last-child {
-  width: 693px;
-}
-
 .footer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Прижимаем всё к верху синей рамки */
+  align-items: flex-start;
   width: 1100px;
   height: 180px;
-  margin: 180px auto 50px; 
-  padding: 20px 0 82px; /* 82px снизу по твоему замеру */
+  margin: 180px auto 50px;
+  padding: 20px 0 82px;
   box-sizing: border-box;
 }
 
@@ -427,12 +405,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 64px;
-  justify-content: space-between;
-}
-
-.footer__menu-item {
-  line-height: 1;
+  gap: 4px;
 }
 
 .footer__menu-item a {
@@ -448,8 +421,6 @@
 
 .footer__menu-link--underlined {
   border-bottom: 1px solid #000;
-  display: inline-block;
-  line-height: 0.9;
 }
 
 .footer__socials {
@@ -486,7 +457,7 @@
   width: 48px;
   height: 48px;
   border: 1px solid #000;
-  border-radius: 50%; /* privet*/
+  border-radius: 50%;
   transition: background-color 0.3s ease;
 }
 
