@@ -5,9 +5,9 @@
 }
 
 body {
-  width: 1100px;
-  margin: 0 auto;
-  font-family: Raleway, sans-serif;
+  background-color: #ffffff; /* Или другой цвет из Figma */
+  color: #000000;
+  font-family: 'Raleway', sans-serif;
 }
 
 h1,
