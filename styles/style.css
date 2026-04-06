@@ -1,18 +1,10 @@
-/* место для вашего кода */
-
-/* Шапка сайта */
 .header {
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
-  align-items: center;
-  margin-bottom: -1px; /* Нахлест в 1 пиксель убирает белые щели */
-  padding: 92px 50px;
-  background-color: #fff; /* Добавь это! */
-  position: relative;     /* Чтобы она была выше оверлея */
-  z-index: 10;            /* Самый высокий слой */
-  
+  align-items: center; 
+  padding: 92px 50px 96px; 
+  background-color: #fff;
 }
-
 .header__menu {
   /* Здесь ничего менять не нужно, она просто займет первую колонку */
 }
@@ -28,93 +20,210 @@
 }
 
 .header__menu-item { }
+
 .header__link {
   font-size: 18px;
-  text-decoration: none;
+  text-decoration: none; /* Убираем стандартное браузерное подчеркивание */
   color: #000;
-  white-space: nowrap; /* Чтобы ссылки не переносились на вторую строку */
+  /* Добавляем подчеркивание через border или text-decoration */
+  border-bottom: 1px solid currentColor; 
+  padding-bottom: 2px; /* Немного отступа для красоты */
+  transition: opacity 0.3s ease;
 }
 .header__link_active {
-  border-bottom: 1px solid #000;
+  /* Убираем подчеркивание именно у активной ссылки */
+  border-bottom: none; 
+  cursor: default; /* Опционально: показываем, что на нее нельзя нажать */
 }
+
+/* Эффект при наведении на обычные ссылки */
+.header__link:hover {
+  opacity: 0.6;
+}
+
+/* Отменяем эффект наведения для активной ссылки */
+.header__link_active:hover {
+  opacity: 1;
+}
+.header__links-list {
+  display: flex;
+  gap: 32px; /* Расстояние между пунктами по макету */
+  list-style: circle; /* Точки между ссылками */
+  padding: 0;
+}
+
+.header__links-list-item {
+  /* Это добавит «воздуха» между кружочком и текстом внутри пункта */
+  padding-left: 8px; 
+}
+.header__links-list-item_no-bullit {
+  list-style: none; /* Убираем точку у первого пункта */
+}
+
 .header__logo {
-  display: block;
-  width: 148px; /* Фиксированная ширина из Figma */
+  width: 148px;
+  height: 105px;
+  justify-self: center; /* Центровка логотипа в сетке */
 }
+
 .header__logo-image {
   width: 100%;
   display: block;
 }
 .header__address {
-  display: flex;
-  flex-direction: column;
-  gap: 5px; /* Небольшой отступ между строками адреса */
-  font-style: normal;
-  text-align: right; /* Прижимаем текст к правому краю */
+  justify-self: end; /* Прижимаем к правому краю */
+  width: 240px;
 }
-
 /* Общие стили для адресов */
-.address { }
-.address__link {
-  text-decoration: none;
-  color: #000;
-  display: block; /* Ссылки будут друг под другом */
-}
-.address__text {
-  margin-top: 5px;
+.address {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 24.3px; /* Межстрочный интервал из параметров */
 }
 
+.address__text {
+  margin-top: 4px;
+  line-height: 1.2; /* Чтобы перенос адреса выглядел компактно */
+}
+
+.address__link {
+  display: block;
+  text-decoration: underline; /* Подчеркивание для почты и телефона по фото */
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  margin-bottom: 4px;
+}
 /* Секция Cover */
+/* 1. Секция-родитель */
 .cover {
-  position: relative; /* Обязательно! */
-  background-image: url("../images/cover.jpg");
+  position: relative;
+  display: flex;
+  background-image: url(../images/cover.jpg);
   background-size: cover;
   background-position: center;
-  min-height: 757px; /* Высота из Figma */
-  padding: 165px 50px 50px;
+  min-height: 757px;
+}
+
+/* Класс для расширенного межбуквенного расстояния (30% от 100px = 30px) */
+.letter-spacing-extended {
+  letter-spacing: 0.3em;
+}
+
+/* Класс для обнуления расстояния у последней буквы слова */
+.no-letter-spacing {
+  letter-spacing: 0;
+}
+
+.cover__inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
+  padding: 165px 50px 50px;
+  box-sizing: border-box;
 }
-
 .overlay {
   position: absolute;
-  inset: 0; /* Растягивается на весь родительский блок */
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 0;
 }
+
+/* 3. Контент (Заголовок и описание) */
 .cover__title {
+  /* Позиционирование */
+  position: absolute;
+  top: 165px;
+  left: 50px;
+  
+  /* Размеры */
+  width: 1000px;
+  height: 385px;
+  
+  /* Флекс */
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Расстояние между строками */
+  justify-content: space-between; /* Теперь сработает верно */
+  
+  /* Типографика */
+  margin: 0;
+  padding: 0;
   color: #fff;
   font-family: 'Raleway', sans-serif;
-  font-size: 100px;
   font-weight: 700;
+  font-size: 100px;
   text-transform: uppercase;
-  line-height: 1; /* Чтобы строки не были слишком далеко друг от друга */
-  position: relative;
-  z-index: 1;
+  z-index: 2;
+  
+  /* ДОБАВЛЯЕМ ЭТО СВОЙСТВО: 30% от 100px */
+  letter-spacing: 0.3em; 
 }
+
+/* Стили для отдельных строк заголовка */
 .aligned-text {
   display: block;
+  /* Задаем line-height: 1, чтобы высота строки была равна размеру шрифта.
+     Это позволит justify-content: space-between верно распределить отступы. */
+  line-height: 1; 
 }
 
+/* "ОНО" - по умолчанию слева */
+
+/* "ТЕБЕ" - в центр */
 .aligned-text_center {
-  display: block;
-  align-self: center; /* Центрируем вторую строку */
+  align-self: center;
 }
 
+/* "НАДО" - вправо */
 .aligned-text_right {
-  display: block;
-  align-self: flex-end; /* Прижимаем третью строку вправо */
+  align-self: flex-end;
 }
+
 .cover__description {
-  position: relative; /* Позволяет работать z-index */
-  z-index: 2;         /* Больше, чем 0 у оверлея */
+  position: absolute;
+  top: 656px; /* Точно как в Figma */
+  left: 50px;
+  width: 1000px; /* Ширина контентной области */
+  height: 51px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
 }
-.cover__description-text { }
-.bet-button { }
+
+.cover__description-text {
+  margin: 0;
+  width: 637px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #fff;
+  
+  letter-spacing: 0; /* Буквы плотно */
+  word-spacing: 19.8px; /* Пробелы 90% (22px * 0.9) */
+  white-space: nowrap;
+}
+
+.bet-button {
+  width: 256px;
+  height: 51px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.bet-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 
 /* Секция Lots */
 .lots {
@@ -127,48 +236,135 @@
 }
 .lots__card-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
-  gap: 25px; /* Расстояние между карточками по макету */
+  grid-template-columns: repeat(auto-fill, minmax(334px, 1fr)); /* Автоперенос на новую строку */
+  gap: 25px;
   list-style: none;
-  margin-top: 27px;
+  padding: 0;
+  margin: 27px 0 0;
 }
-.lots__card-list-item { }
-.card-link { }
-.card { }
-.card__title { }
-.card__text { }
+.lots__card-list-item {
+  width: 100%;
+  min-height: 450px; /* Минимальная высота по макету */
+}
+.card-link {
+  display: block;
+  text-decoration: none; /* Сброс подчеркивания ссылки */
+  height: 100%;
+}
+.card {
+  position: relative; /* Для позиционирования оверлея */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 50px 40px; /* Внутренние отступы контента */
+  background-size: cover;
+  background-position: center;
+}
+
+.card_type_film { background-image: url(../images/card-lot-01.jpg); }
+.card_type_book { background-image: url(../images/card-lot-02.jpg); }
+.card_type_picture { background-image: url(../images/card-lot-03.jpg); }
+
+.card__title {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  text-decoration: underline; /* Заголовок внутри карточки подчеркнут */
+  text-transform: uppercase;
+}
+.card__text {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.card .overlay {
+  z-index: 1;
+}
+
 .lots__look-more { }
 
 /* Секция About */
 .about {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* Левая колонка под лого, правая под текст */
-  gap: 30px;
+  /* Левая колонка как карточка (334px + gap), правая — остальное */
+  grid-template-columns: 334px 1fr; 
+  column-gap: 25px;
+  padding: 180px 50px;
   align-items: start;
 }
-.about__column { }
+.about__column {
+  display: flex;
+  flex-direction: column;
+}
 .about__logo {
-  background-color: #000; /* Черный круг под белым логотипом */
   width: 148px;
   height: 148px;
+  background-color: #000;
   border-radius: 50%;
+  
+  /* Центрируем белый логотип внутри черного круга */
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  /* Размещаем круг по центру левой колонки */
+  align-self: center;
 }
-.about__logo-image { }
+
+.about__logo-image {
+  width: 90px; /* Примерный размер белого лого */
+  height: auto;
+}
+
 .about__title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
   font-size: 40px;
   text-transform: uppercase;
-  margin-bottom: 40px;
+  margin: 0 0 40px;
+  /* Выравнивание по центру круга: подберем padding, если нужно */
+  padding-top: 45px; 
 }
-.about__text { }
+
+
+.about__text {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.about__text p:first-child {
+  margin-bottom: 24px;
+}
+
+.about__text p:last-child {
+  margin-bottom: 0;
+}
 
 /* Футер */
 .footer {
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  align-items: start;
   padding: 180px 50px 92px;
 }
 .footer__menu { }
-.footer__social-list { }
-.footer__social-link { }
+.footer__social-list {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  list-style: none;
+}
+.footer__social-link img {
+  width: 48px; /* Размер иконок из макета */
+}
 

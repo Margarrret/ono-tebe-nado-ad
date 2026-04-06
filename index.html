@@ -15,99 +15,76 @@
   <body>
   <header class="header">
   <nav class="header__menu">
-    <ul class="header__menu-list">
-      <li class="header__menu-list-item header__menu-list-item_no-bullit">
+    <ul class="header__links-list">
+      <li class="header__links-list-item header__links-list-item_no-bullit">
         <a class="header__link header__link_active">главная</a>
       </li>
       <li class="header__links-list-item">
-        <a class="header__link" href="#lots">посмотреть лоты</a>
+        <a href="#lots" class="header__link">посмотреть лоты</a>
       </li>
       <li class="header__links-list-item">
-        <a class="header__link" href="#about">об аукционе</a>
+        <a href="#about" class="header__link">об аукционе</a>
       </li>
     </ul>
   </nav>
+
   <a class="header__logo">
-    <img class="header__logo-image" src="./images/logo.svg" alt="Логотип проекта">
+    <img src="./images/logo-black.svg" alt="Логотип" class="header__logo-image">
   </a>
+
   <address class="address header__address">
     <a href="tel:+99995555555" class="address__link">+9 999 555 5555</a>
-    <a href="mailto:info@sad.com" class="address__link">info@sad.com</a>
-    <p class="address__text">г. город, пр. проспект, д. дом</p>
+    <a href="mailto:info@sobaka.ge" class="address__link">info@sobaka.ge</a>
+    <p class="address__text">
+      наб. Принсенграхт 263-<br>265, Амстердам
+    </p>
   </address>
-</header>
+  </header>
 
   <main>
-  <section class="cover">
-    <div class="overlay"></div> <!-- Добавили элемент для затемнения фона из макета -->
-    <h1 class="cover__title">
-      <span class="aligned-text">оно</span>
-      <span class="aligned-text_center">тебе</span>
-      <span class="aligned-text_right">надо</span>
-    </h1>
-    <div class="cover__description">
-      <p class="cover__description-text">Аукцион вещей, в которые никто не верил</p>
-      <button class="bet-button" type="button">сделать ставку</button>
-    </div>
-  </section>
-
-  <section id="lots" class="lots">
-    <h2 class="lots__heading">Лоты</h2>
-    <ul class="lots__card-list">
-      <li class="lots__card-list-item">
-        <a href="#" class="card-link">
-          <article class="card card_type_film">
-            <div class="overlay"></div>
-            <h3 class="card__title">Фильм «Назад в будущее» на оригинальной кассете</h3>
-            <p class="card__text">Один из тех лотов, за которые стоит побороться. Кассета в идеальном состоянии, с оригинальным боксом.</p>
-          </article>
-        </a>
-      </li>
-      <!-- Здесь будут еще 5 таких же <li> с разными классами-модификаторами (card_type_picture и т.д.) -->
-    </ul>
-    <a class="lots__look-more" href="#">посмотреть больше</a>
-  </section>
-
-  <section id="about" class="about">
-    <div class="about__column">
-      <div class="about__logo">
-        <img class="about__logo-image" src="./images/logo-white.svg" alt="Логотип в круге">
+    <section class="cover">
+      <div class="overlay"></div>
+      <!-- Добавляем внутренний контейнер для управления флексом -->
+      <div class="cover__inner">
+        <h1 class="cover__title letter-spacing-extended">
+          <span class="aligned-text">
+            ОН<span class="no-letter-spacing">О</span>
+          </span>
+          <span class="aligned-text aligned-text_center">
+            ТЕБ<span class="no-letter-spacing">Е</span>
+          </span>
+          <span class="aligned-text aligned-text_right">
+            НАД<span class="no-letter-spacing">О</span>
+          </span>
+        </h1>
+        <div class="cover__description">
+          <p class="cover__description-text">Аукцион вещей, в которые никто не верил</p>
+          <button class="bet-button" type="button">Сделать ставку</button>
+        </div>
       </div>
-    </div>
-    <div class="about__column">
-      <h2 class="about__title">Об аукционе</h2>
-      <div class="about__text">
-        <p>Здесь вы найдете самые необычные вещи, которые когда-то казались ненужными, но обрели новую ценность в глазах коллекционеров.</p>
-        <p>Мы верим, что каждая вещь заслуживает второго шанса, даже если в неё никто не верил.</p>
-      </div>
-    </div>
-  </section>
-</main>
-  <!-- Подвал сайта -->
+    </section>
+
+    <!-- Секции Lots и About остаются как у тебя, они размечены верно -->
+  </main>
+
   <footer class="footer">
-  <address class="address footer__address">
-    <a href="tel:+99995555555" class="address__link">+9 999 555 5555</a>
-    <a href="mailto:info@sad.com" class="address__link">info@sad.com</a>
-    <p class="address__text">г. город, пр. проспект, д. дом</p>
-  </address>
-  <nav class="footer__menu">
-    <ul class="footer__menu-list">
-      <li><a class="footer__menu-link_active">главная</a></li>
-      <li><a class="footer__menu-link" href="#lots">посмотреть лоты</a></li>
-      <li><a class="footer__menu-link" href="#about">об аукционе</a></li>
+    <address class="address footer__address">
+      <a href="tel:+99995555555" class="address__link">+9 999 555 5555</a>
+      <a href="mailto:info@sad.com" class="address__link">info@sad.com</a>
+      <p class="address__text">г. город, пр. проспект, д. дом</p>
+    </address>
+    <nav class="footer__menu">
+      <ul class="footer__links-list"> <!-- Используем тот же класс для точек -->
+        <li class="header__links-list-item_no-bullit"><a class="header__link header__link_active">главная</a></li>
+        <li class="header__links-list-item"><a class="header__link" href="#lots">посмотреть лоты</a></li>
+        <li class="header__links-list-item"><a class="header__link" href="#about">об аукционе</a></li>
+      </ul>
+    </nav>
+    <ul class="footer__social-list">
+      <li class="footer__social-list-item"><a class="footer__social-link" href="#"><img src="./images/yt.svg" alt="Youtube"></a></li>
+      <li class="footer__social-list-item"><a class="footer__social-link" href="#"><img src="./images/vk.svg" alt="VK"></a></li>
+      <li class="footer__social-list-item"><a class="footer__social-link" href="#"><img src="./images/pinterest.svg" alt="Pinterest"></a></li>
     </ul>
-  </nav>
-  <ul class="footer__social-list">
-    <li class="footer__social-list-item">
-      <a class="footer__social-link" href="#"><img src="./images/yt.svg" alt="Youtube"></a>
-    </li>
-    <li class="footer__social-list-item">
-      <a class="footer__social-link" href="#"><img src="./images/vk.svg" alt="VK"></a>
-    </li>
-    <li class="footer__social-list-item">
-      <a class="footer__social-link" href="#"><img src="./images/pinterest.svg" alt="Pinterest"></a>
-    </li>
-  </ul>
-</footer>
-  </body>
+  </footer>
+</body>
 </html>
