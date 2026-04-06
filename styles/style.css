@@ -355,105 +355,218 @@
 .card_type_picture { background-image: url('../images/card-lot-03.jpg'); }
 
 .lots__look-more-link {
-  /* Убираем лишние внешние отступы */
   display: block;
-  margin: 30px 0 0 40px; /* 30px сверху от карточек, 40px слева */
-  
-  /* Размеры из макета */
-  width: 192px;
-  height: 25px; /* На последнем скрине высота 25px */
-  
-  /* Типографика */
+  margin: 30px 0 0 40px;
+  width: 192px; /* Оставляем как в макете */
+  height: 25px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  line-height: 1.2; /* Чтобы текст не прилипал к линии */
+  line-height: 1.2;
   color: #000000;
   text-decoration: none;
-  
-  /* Линия строго под текстом */
   border-bottom: 1px solid #000000;
-  
-  /* Чтобы паддинг не раздувал общую высоту ссылки */
-  box-sizing: border-box;
+  white-space: nowrap; 
 }
-/* Эффект при наведении (опционально, для красоты) */
+
 .lots__look-more-link:hover {
   opacity: 0.7;
 }
 /* Секция About */
 .about {
   display: grid;
-  /* Левая колонка как карточка (334px + gap), правая — остальное */
-  grid-template-columns: 334px 1fr; 
+  grid-template-columns: 334px 1fr;
   column-gap: 25px;
-  padding: 180px 50px;
-  align-items: start;
+  width: 1052px;
+  margin: 140px auto 0 24px;
+  /* Убираем padding-top, чтобы он не толкал логотип вниз */
+  padding: 0; 
+  box-sizing: border-box;
 }
-.about__column {
-  display: flex;
-  flex-direction: column;
-}
-.about__logo {
-  width: 148px;
-  height: 148px;
-  background-color: #000;
-  border-radius: 50%;
+
+.logo-column {
+  /* Параметры Layout */
+  padding-top: 35px;  /* Top: 35px */
+  padding-left: 47px; /* Left: 47px */
   
-  /* Центрируем белый логотип внутри черного круга */
+  /* Размеры самой колонки из скрина */
+  width: 240px; 
+  height: 240px;
+}
+.about__column:first-child {
+  align-items: center;
+}
+
+.about__logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* Размещаем круг по центру левой колонки */
-  align-self: center;
+  width: 240px;
+  height: 240px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.about-column {
+  /* Если логотип теперь на 35px от верха, а нам нужно выровнять 
+     заголовок по его центру: (35px отступ + 120px половина круга) = 155px. 
+     Вычитаем примерно половину высоты шрифта (20px) */
+  padding-top: 135px; 
 }
 
 .about__logo-image {
-  width: 90px; /* Примерный размер белого лого */
+  width: 148px; /* Примерный размер белого логотипа внутри */
   height: auto;
 }
 
 .about__title {
+  margin-bottom: 100px; /* Сохраняем воздух до текста как в макете */
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 40px;
   text-transform: uppercase;
-  margin: 0 0 40px;
-  /* Выравнивание по центру круга: подберем padding, если нужно */
-  padding-top: 45px; 
 }
-
 
 .about__text {
+  max-width: 693px; /* Ширина из параметров description-block */
+}
+
+.about__paragraph {
   font-family: 'Raleway', sans-serif;
+  font-weight: 400;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 24px; /* Line height 120% */
+  margin: 0;
 }
 
-.about__text p:first-child {
-  margin-bottom: 24px;
+/* Отступ между абзацами */
+.about__paragraph:first-child {
+  margin-bottom: 30px; /* Paragraph spacing из параметров */
 }
 
-.about__text p:last-child {
-  margin-bottom: 0;
+.about__paragraph:last-child {
+  width: 693px; /* Ширина из скрина 2 */
 }
 
 /* Футер */
 .footer {
-  display: grid;
-  grid-template-columns: 1fr min-content 1fr;
-  align-items: start;
-  padding: 180px 50px 92px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Контент прижат к верхнему краю внутренней области */
+  
+  width: 1100px;
+  height: 180px; /* Фиксированная высота по макету */
+  
+  /* 180px — отступ от секции about (пробел между блоками) */
+  margin: 180px auto 50px; 
+  
+  /* Внутренние отступы футера */
+  /* padding-top: рассчитывается как (Высота 180 - Высота контента 98 - Отступ снизу 82) */
+  /* Если высота самого высокого блока (контактов) 98px, а снизу нужно 82px: */
+  /* 180 - 98 - 82 = 0. Значит, padding-top будет 0. */
+  padding-top: 0; 
+  padding-bottom: 82px; /* Строго 82px от конца контактов до низа футера */
+  
+  box-sizing: border-box;
+  /* border: 1px solid #0066FF; */
 }
-.footer__menu { }
-.footer__social-list {
+
+/* Колонки */
+.footer__column {
+  flex: 1;
+}
+
+.footer__menu {
   display: flex;
   justify-content: center;
-  gap: 48px;
+}
+
+.footer__menu-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 64px; 
+  justify-content: space-between;
 }
-.footer__social-link img {
-  width: 48px; /* Размер иконок из макета */
+
+.footer__menu-item {
+  line-height: 1; /* Чтобы текст занимал ровно столько, сколько нужно */
 }
+.footer__menu-item a {
+  display: block; /* Чтобы line-height считался корректно */
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1; 
+  color: #000000;
+  text-decoration: none;
+  white-space: nowrap; /* Чтобы "посмотреть лоты" не прыгало на две строки */
+}
+
+.footer__menu-link--underlined {
+  border-bottom: 1px solid #000;
+  /* Чтобы линия была точно под текстом как в макете */
+  display: inline-block;
+  line-height: 0.9; 
+}
+.footer__socials {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.address__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.address__list-item {
+  line-height: 1.2;
+}
+
+.address__list-item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.socials__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;              /* Ширина круга из Ellipse */
+  height: 48px;             /* Высота круга из Ellipse */
+  border: 1px solid #000;   /* Рамка 1px */
+  border-radius: 50%;       /* Скругление до круга */
+  transition: background-color 0.3s ease;
+}
+
+.socials__link:hover {
+  background-color: #f0f0f0; /* Легкий эффект при наведении */
+}
+
+.socials__icon--yt {
+  width: 26px;
+  height: 20px;
+}
+
+.socials__icon--vk {
+  width: 29px;
+  height: 18px;
+}
+
+.socials__icon--pinterest {
+  width: 17px;
+  height: 22px;
+}
+
 
