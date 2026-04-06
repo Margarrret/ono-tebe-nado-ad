@@ -4,15 +4,14 @@
   align-items: center;
   padding: 92px 50px 96px;
   background-color: #fff;
-  width: 1100px; 
+  width: 1100px;
   margin: 0 auto;
-  box-sizing: border-box;
 }
 
 .header__menu-list {
   display: flex;
   gap: 32px;
-  list-style: none;
+  list-style: none; /* Убрали маркеры */
   padding: 0;
   margin: 0;
 }
@@ -27,7 +26,6 @@
   color: #000;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
-  transition: opacity 0.3s ease;
 }
 
 .header__link_active {
@@ -46,8 +44,9 @@
 .header__links-list {
   display: flex;
   gap: 32px;
-  list-style: circle;
+  list-style: none; /* ЗАМЕНИЛ circle на none, чтобы не было розовых ошибок */
   padding: 0;
+  margin: 0;
 }
 
 .header__links-list-item {
@@ -72,10 +71,10 @@
 .header__address {
   justify-self: end;
   width: 240px;
+  text-align: right; 
 }
 
 .address {
-  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-size: 18px;
   line-height: 24.3px;
