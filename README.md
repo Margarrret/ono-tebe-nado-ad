@@ -1,1 +1,1 @@
-https://github.com/Margarrret/ono-tebe-nado-ad
+Проект "Оно тебе надо": https://github.com/Margarrret/ono-tebe-nado-ad
