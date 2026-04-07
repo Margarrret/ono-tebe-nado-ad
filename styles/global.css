@@ -6,11 +6,11 @@
 
 body {
   width: 1100px;
-  height: 3028px;
   margin: 0 auto;
   overflow-x: hidden;
   position: relative;
   background-color: #fff;
+  /* убрал фиксированную высоту 3028px — она мешает */
 }
 
 h1,
@@ -34,4 +34,5 @@ a {
 
 img {
   width: 100%;
-}
+} 
+
